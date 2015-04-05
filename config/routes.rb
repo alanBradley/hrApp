@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  resources :profiles
+
   devise_for :users
   resources :employees do
     resources :annuals
   end
   
   root to: "employees#index"
+  
+  get '/signedinuserprofile' => 'profiles#signedinuserprofile'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
