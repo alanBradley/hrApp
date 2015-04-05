@@ -1,7 +1,11 @@
 <h1>annual in <%= @employee.firstname %></h1>
 <p>
-  <b>annual details:</b>
-  <%= @annual.details %>
+  <b>annual description:</b>
+  <%= @annual.description %>
+</p>
+<p>
+  <b>annual date:</b>
+  <%= @annual.date %>
 </p>
 <%= link_to 'Edit', edit_employee_annual_path(@employee, @annual) %> |
 <%= link_to 'Back', employee_annuals_path(@employee) %>

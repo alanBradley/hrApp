@@ -35,7 +35,7 @@ class AnnualsController < ApplicationController
     # For URL like /employees/1/annuals
     # Populate an annual associate with employee 1 with form data
     # employee will be associated with the annual
-    @annual = @employee.annuals.build(params.require(:annual).permit(:details))
+    @annual = @employee.annuals.build(params.require(:annual).permit(:description, :date))
     if @annual.save
       # Save the annual successfully
       redirect_to employee_annual_url(@employee, @annual)
@@ -56,8 +56,8 @@ class AnnualsController < ApplicationController
   # PUT /employees/1/annuals/2
   def update
     @employee = Employee.find(params[:employee_id])
-    @annual = annual.find(params[:id])
-    if @annual.update_attributes(params.require(:annual).permit(:details))
+    @annual = Annual.find(params[:id])
+    if @annual.update_attributes(params.require(:annual).permit(:description, :date))
       # Save the annual successfully
       redirect_to employee_annual_url(@employee, @annual)
     else
@@ -68,7 +68,7 @@ class AnnualsController < ApplicationController
   # DELETE /employees/1/annuals/2
   def destroy
     @employee = Employee.find(params[:employee_id])
-    @annual = annual.find(params[:id])
+    @annual = Annual.find(params[:id])
     @annual.destroy
 
     respond_to do |format|

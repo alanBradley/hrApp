@@ -1,12 +1,12 @@
 <h1>annuals in <%= @employee.firstname %></h1>
 <table>
   <tr>
-    <th>annual details</th>
+    <th>annual description</th>
   </tr>
 
 <% for annual in @annuals %>
   <tr>
-    <td><%= annual.details %></td>
+    <td><%= annual.description %></td>
     <td><%= link_to 'Show', employee_annual_path(@employee, annual)
 		 %></td>
     <td><%= link_to 'Edit', edit_employee_annual_path(@employee, annual)
