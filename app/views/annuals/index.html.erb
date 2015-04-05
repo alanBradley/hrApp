@@ -1,0 +1,22 @@
+<h1>annuals in <%= @employee.firstname %></h1>
+<table>
+  <tr>
+    <th>annual details</th>
+  </tr>
+
+<% for annual in @annuals %>
+  <tr>
+    <td><%= annual.details %></td>
+    <td><%= link_to 'Show', employee_annual_path(@employee, annual)
+		 %></td>
+    <td><%= link_to 'Edit', edit_employee_annual_path(@employee, annual)
+		 %></td>
+    <td><%= link_to 'Destroy', employee_annual_path(@employee, annual), 
+		:confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+
+<%= link_to 'New annual', new_employee_annual_path(@employee) %>
+<%= link_to 'Back to employee', @employee %>

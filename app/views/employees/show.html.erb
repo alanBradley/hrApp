@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @employee.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @employee.lastname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @employee.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @employee.phone %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>
+
+<!-- Display the annuals of an employee -->
+<h2>employee's annual leave requests</h2>
+<% @employee.annuals.each do |annual| %>
+<p>
+<b>request date:</b>
+<%= annual.datetime %>
+</p>
+<p>
+<b>request description:</b>
+<%= annual.description %>
+</p>
+<% end %>
+<%= link_to 'Show annuals', employee_annuals_path(@employee) %>

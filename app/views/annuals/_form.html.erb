@@ -1,0 +1,24 @@
+<%= form_for([@employee, @annual]) do |f| %>
+  <% if @annual.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@annual.errors.count, "error") 
+	%> prohibited this annual from being saved:</h2>
+
+      <ul>
+      <% @annual.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  	<p>
+    <%= f.label :Details %><br />
+    <%= f.text_field :details %>
+  </p>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
