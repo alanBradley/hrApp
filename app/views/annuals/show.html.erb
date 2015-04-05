@@ -7,5 +7,10 @@
   <b>annual date:</b>
   <%= @annual.date %>
 </p>
-<%= link_to 'Edit', edit_employee_annual_path(@employee, @annual) %> |
-<%= link_to 'Back', employee_annuals_path(@employee) %>
+
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_employee_annual_path(@employee, @annual) %> |
+  <%= link_to 'Back', employee_annuals_path(@employee) %>
+<% else %>
+  <%= link_to 'Back', employee_annuals_path(@employee) %>
+<% end %>

@@ -20,8 +20,12 @@
   <%= @employee.phone %>
 </p>
 
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_employee_path(@employee) %> |
+  <%= link_to 'Back', employees_path %>
+<% else %>
+  <%= link_to 'Back', employees_path %>
+<% end %>
 
 <!-- Display the annuals of an employee -->
 <h2>employee's annual leave requests</h2>
